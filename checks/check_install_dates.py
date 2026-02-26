@@ -36,7 +36,7 @@ class InstallDateNotInFutureCheck(BaseCheck):
         if self.date_col not in df.columns:
             return [Finding('(DATASET)', self.check_id, 'ERROR', f'Missing column: {self.date_col}', field=self.date_col)]
         
-        # Convert date column to datetime, coercing invalid dates to NaT (Not a Time)
+        # Convert date column to datetime 
         dates = pd.to_datetime(df[self.date_col], errors='coerce')
         # Create a mask for rows where the date exists and is in the future (after today at midnight)
         mask = dates.notna() & (dates > pd.Timestamp.today().normalize())
