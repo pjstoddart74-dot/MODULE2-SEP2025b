@@ -6,19 +6,19 @@ from models import Finding
 from .base import BaseCheck, Tables
 
 class InstallDateNotInFutureCheck(BaseCheck):
-    """Validates that asset INSTALLDATE values are not in the future."""
+    """Validates that asset INSTALLED values are not in the future."""
     check_id = 'INSTALL_DATE_FUTURE'
     name = 'Install date not in the future'
-    description = 'Flags assets with INSTALLDATE later than today.'
+    description = 'Flags assets with INSTALLED later than today.'
     severity_default = 'WARN'
 
-    def __init__(self, assets_key: str = 'ASSETS', date_col: str = 'INSTALLDATE'):
+    def __init__(self, assets_key: str = 'ASSETS', date_col: str = 'INSTALLED'):
         """
         Initialize the install date check with configurable table and column names.
         
         Args:
             assets_key: Name of the table containing asset data (default: 'ASSETS')
-            date_col: Name of the date column to validate (default: 'INSTALLDATE')
+            date_col: Name of the date column to validate (default: 'INSTALLED')
         """
         self.assets_key = assets_key
         self.date_col = date_col

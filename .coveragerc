@@ -2,7 +2,13 @@
 omit =
     tests/*
     __init__.py
+    gui.py
+    main.py
+    io_odbc.py
+    sql_defs.py
 
 [report]
 # show missing lines in report
 show_missing = True
+
+
